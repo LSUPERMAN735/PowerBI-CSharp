@@ -32,7 +32,7 @@ var jwt = embedToken.Generate(accessKey);
 
 ### Réclamations requises
 - ver: 0.2.0
-- typ: "embed"
+ - typ: "embed"
 - wcn: {WorkspaceCollectionName}
 - wid: {WorkspaceId}
 - rid: {ReportId} (or did: {DatasetId})
@@ -93,7 +93,7 @@ Le `Microsoft.PowerBI.Api` est un client .NET REST pour consommer facilement les
 ### Installer à partir de Nuget
 `Install-Package Microsoft.PowerBI.Api`
 
-### Usage: Calling the GetReports API
+### Usage : Calling the GetReports API
 As an example, to get a list or reports within your workspace you need to instantiate a `PowerBIClient` with credentials and call into the `GetReports` API.
 ```
 var credentials = new TokenCredentials("{AzureAccessKey}", "AppKey");
@@ -131,7 +131,7 @@ La mosaïque et l'intégration de rapport seront automatiquement intégrées en 
 Pour remplacer la taille par défaut des embeds, ajoutez simplement un attribut de classe CSS ou des styles en ligne pour width & height.
 
 # ASP.NET MVC
-The `Microsoft.PowerBI.AspNet.Mvc` package is a lightweight wrapper that contains MVC HTML helpers that generate HTML markup compatible with the core JavaScript SDK.
+Le `Microsoft.PowerBI.AspNet.Mvc` package is a lightweight wrapper that contains MVC HTML helpers that generate HTML markup compatible with the core JavaScript SDK.
 
 ## Installer à partir de Nuget
 `Install-Package Microsoft.PowerBI.AspNet.Mvc`
