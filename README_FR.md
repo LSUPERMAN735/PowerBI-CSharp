@@ -47,12 +47,11 @@ var jwt = embedToken.Generate(accessKey);
 
 Pour plus d'information sur [row level security](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-rls/) dans nos docs Azure.
 
-### Token Example
+### Exemple de jeton
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXIiOiIwLjIuMCIsIndjbiI6IlN1cHBvcnREZW1vIiwid2lkIjoiY2E2NzViMTktNmMzYy00MDAzLTg4MDgtMWM3ZGRjNmJkODA5IiwicmlkIjoiOTYyNDFmMGYtYWJhZS00ZWE5LWEwNjUtOTNiNDI4ZWRkYjE3IiwiaXNzIjoiUG93ZXJCSVNESyIsImF1ZCI6Imh0dHBzOi8vYW5hbHlzaXMud2luZG93cy5uZXQvcG93ZXJiaS9hcGkiLCJleHAiOjEzNjAwNDcwNTYsIm5iZiI6MTM2MDA0MzQ1Nn0.LgG2y0m24gg3vjQHhkXYYWKSVnGIUYT-ycA6JmTB6tg
 
-## Adding Permission Scopes to Embed Tokens
-When using Embed tokens, one might want to restrict usage of the resources he gives access to. For this reason, you can generate a token with scoped permissions.
-
+## Ajout d'étendues d'autorisation aux jetons d'intégration
+Lorsque vous utilisez des jetons Intégré, vous pouvez restreindre l'utilisation des ressources auxquelles il donne accès. Pour cette raison, vous pouvez générer un jeton avec des autorisations étendues.
 ```
 var accessKey = "{AzureAccessKey}";
 var scopes = {Scopes as string or array of strings};
@@ -60,11 +59,11 @@ var embedToken = PowerBIToken.CreateReportEmbedTokenWithScopes(workspaceCollecti
 var jwt = embedToken.Generate(accessKey);
 
 ```
-### Token Example - With Scopes
+### Exemple de jeton - avec des scopes
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXIiOiIwLjIuMCIsIndjbiI6IlN1cHBvcnREZW1vIiwid2lkIjoiY2E2NzViMTktNmMzYy00MDAzLTg4MDgtMWM3ZGRjNmJkODA5IiwicmlkIjoiOTYyNDFmMGYtYWJhZS00ZWE5LWEwNjUtOTNiNDI4ZWRkYjE3Iiwic2NwIjoiUmVwb3J0LlJlYWQiLCJpc3MiOiJQb3dlckJJU0RLIiwiYXVkIjoiaHR0cHM6Ly9hbmFseXNpcy53aW5kb3dzLm5ldC9wb3dlcmJpL2FwaSIsImV4cCI6MTM2MDA0NzA1NiwibmJmIjoxMzYwMDQzNDU2fQ.M1jkWXnkfwJeGQqh1x0vIAYB4EBKbHSZFoDB6n_LZyA
 
-#### Decoded
-The following decoded JSON web token
+#### Décodé
+Le jeton JSON Web décodé est le suivant
 **Header**
 ```javascript
 {
@@ -88,10 +87,10 @@ The following decoded JSON web token
 }
 ```
 
-## Power BI Embedded REST Client
-The `Microsoft.PowerBI.Api` is a .NET REST Client to easily consume the Power BI Embedded REST services.
+## Client REST Power BI intégré
+Le `Microsoft.PowerBI.Api` est un client .NET REST pour consommer facilement les services REST Power BI intégré.
 
-### Install from Nuget
+### Installer à partir de Nuget
 `Install-Package Microsoft.PowerBI.Api`
 
 ### Usage: Calling the GetReports API
@@ -117,7 +116,7 @@ The JavaScript SDK is underlying component for all embed scenarios.  The SDK is 
 
 Visit our [JavaScript SDK](https://github.com/Microsoft/powerbi-javascript) home for more information
 
-### Install from Nuget
+### Installer à partir de Nuget
 `Install-Package Microsoft.PowerBI.JavaScript`
 
 ### Setup Power BI for embedding
@@ -127,37 +126,37 @@ Add the Power BI script include before your apps closing `</body>` tag
 
 `<script src="/scripts/powerbi.js"></script>`
 
-### Setting the size of embedded components
-The tile & report embed will automatically be embedded based on the size of the embed container.  
-To override the default size of the embeds simply add a CSS class attribute or inline styles for width & height.
+### Définition de la taille des composants incorporés
+La mosaïque et l'intégration de rapport seront automatiquement intégrées en fonction de la taille du conteneur d'intégration.
+Pour remplacer la taille par défaut des embeds, ajoutez simplement un attribut de classe CSS ou des styles en ligne pour width & height.
 
 # ASP.NET MVC
 The `Microsoft.PowerBI.AspNet.Mvc` package is a lightweight wrapper that contains MVC HTML helpers that generate HTML markup compatible with the core JavaScript SDK.
 
-## Install from Nuget
+## Installer à partir de Nuget
 `Install-Package Microsoft.PowerBI.AspNet.Mvc`
 
-## Setup your Access Token
-Generate your report embed access token with the `Microsoft.PowerBI.Core` token APIs.
+## Configurez votre jeton d'accès
+Générez votre jeton d'accès d'intégration de rapport avec le `Microsoft.PowerBI.Core` API de jetons.
 `@Html.PowerBIAccesstoken({{YourAccesstoken}})`
 
-## Embed your report
+## Intégrez votre rapport
 `@Html.PowerBIReportFor(m => m.EmbedUrl)`
 
 # ASP.NET WebForms
-The `Microsoft.PowerBI.AspNet.WebForms` package is a lightweight wrapper that contains ASP.NET Webform controls that generate HTML markup compatible with the core JavaScript SDK.
-## Install from Nuget
+Le `Microsoft.PowerBI.AspNet.WebForms` package est un wrapper léger qui contient des contrôles ASP.NET Webform qui génèrent un balisage HTML compatible avec le SDK JavaScript principal.
+## Installer à partir de Nuget
 `Install-Package Microsoft.PowerBI.AspNet.WebForms`
 
-## Setup your Access Token
-Ensure you have the following in your view
+## Configurez votre jeton d'accès
+Assurez-vous d'avoir les éléments suivants dans votre vue
 
 `<powerbi:Token ID="pbiAccessToken" runat="server" />`
 
-If you are managing access tokens yourself, make sure to provide it here
+Si vous gérez vous-même des jetons d'accès, assurez-vous de les indiquer ici
 
 `<powerbi:Token ID="pbiAccessToken" AccessToken="{{YourAccessToken}}" runat="server" />`
 
-## Embedding a Report
+## Intégrer un rapport
 
 `<powerbi:Report id="pbiReport" EmbedUrl="{{EmbedUrl}}" runat="server" />`
